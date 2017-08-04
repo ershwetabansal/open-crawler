@@ -10,5 +10,11 @@
     "crawler"
   ],
   "author": "Shweta Bansal",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "crawler": "^1.0.5"
+  },
+  "bin": {
+    "snippet": "index.js"
+  }
 }
