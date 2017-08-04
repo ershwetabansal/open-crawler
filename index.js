@@ -19,4 +19,4 @@ const c = new Crawler({
     done()
   }
 })
-c.queue(config)
+c.queue(config.websites)
