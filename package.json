@@ -4,7 +4,9 @@
   "description": "Open crawler to start crawling on any website and send email of the snapshot",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "local_execute": "export NODE_ENV=development; node index.js",
+    "execute": "export NODE_ENV=production; node index.js"
   },
   "keywords": [
     "crawler"
