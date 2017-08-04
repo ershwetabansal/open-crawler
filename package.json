@@ -1,0 +1,14 @@
+{
+  "name": "open-crawler",
+  "version": "1.0.0",
+  "description": "Open crawler to start crawling on any website and send email of the snapshot",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "crawler"
+  ],
+  "author": "Shweta Bansal",
+  "license": "ISC"
+}
