@@ -1,22 +1,21 @@
-const Crawler = require('crawler')
-const fs = require('fs')
-const config = require('./config.js')
+const crawler = require('./src/crawler')
+const mailer = require('./src/mailer')
+const config = require('./local.config.js')
 
-const c = new Crawler({
-  maxConnections : 10,
-  callback : (error, res, done) => {
-    if(error){
-      console.log(error)
-    }else{
-      const $ = res.$
-      res.options.tags.forEach(tag => {
-        console.log($(tag).html())
-      })
-      res.options.ids.forEach(id => {
-        console.log($('#'+id).html())
-      })
-    }
-    done()
-  }
+let emailHtml = `<h1>${config.email.title}</h1><br/>`
+
+const promises = []
+config.websites.forEach(website => {
+  promises.push(crawler.getWebsiteContent(website).then(content => {
+    emailHtml += '<br>'
+    emailHtml += `<h3><a href="${website.uri}">${website.uri}</a></h3>`
+    emailHtml += '<br>'
+    emailHtml += content
+    emailHtml += '<br>'
+  }))
 })
-c.queue(config.websites)
+Promise.all(promises).then(() => {
+  console.log(emailHtml)
+  mailer.send(config.email.settings, emailHtml)
+})
+
