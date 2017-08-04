@@ -1,0 +1,28 @@
+{
+  "websites": [
+    {
+      "uri": "http://www.canarywharfcollege.co.uk/open-days/929.html",
+      "ids": [],
+      "tags": ["table"]
+    },
+    {
+      "uri": "http://www.canarywharfcollege.co.uk/open-days/930.html",
+      "ids": [],
+      "tags": ["table"]
+    }
+  ],
+  "email": {
+    "title": "School open days",
+    "settings": {
+      "host": "mailtrap.io",
+      "port": 2525,
+      "auth": {
+        "user": "",
+        "password": ""
+      },
+      "from": "",
+      "to": "",
+      "subject": "Open days"
+    }
+  }
+}

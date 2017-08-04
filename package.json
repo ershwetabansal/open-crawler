@@ -12,6 +12,7 @@
   "author": "Shweta Bansal",
   "license": "ISC",
   "devDependencies": {
+    "config": "^1.26.1",
     "crawler": "^1.0.5",
     "nodemailer": "^4.0.1"
   },

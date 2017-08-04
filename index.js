@@ -1,11 +1,11 @@
 const crawler = require('./src/crawler')
 const mailer = require('./src/mailer')
-const config = require('./local.config.js')
+const config = require('config')
 
-let emailHtml = `<h1>${config.email.title}</h1><br/>`
+let emailHtml = `<h1>${config.get('email').title}</h1><br/>`
 
 const promises = []
-config.websites.forEach(website => {
+config.get('websites').forEach(website => {
   promises.push(crawler.getWebsiteContent(website).then(content => {
     emailHtml += '<br>'
     emailHtml += `<h3><a href="${website.uri}">${website.uri}</a></h3>`
@@ -16,6 +16,6 @@ config.websites.forEach(website => {
 })
 Promise.all(promises).then(() => {
   console.log(emailHtml)
-  mailer.send(config.email.settings, emailHtml)
+  mailer.send(config.get('email').settings, emailHtml)
 })
 

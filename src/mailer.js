@@ -5,7 +5,7 @@ module.exports = {
     let transporter = nodemailer.createTransport({
       host: settings.host,
       port: settings.port,
-      secure: true, // secure:true for port 465, secure:false for port 587
+      secure: settings.port === 465, // secure:true for port 465, secure:false for port 587
       auth: {
         user: settings.auth.user,
         pass: settings.auth.password
